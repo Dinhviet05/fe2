@@ -16,12 +16,12 @@ function EditPage() {
       <h1 className="text-2xl font-semibold mb-6">Thêm mới</h1>
 
       <Form layout="vertical" className="space-y-6"  onFinish={onFinish}>
-        {/* Text input */}
+    
         <Form.Item label="tên" name="title">
           <Input placeholder="Nhập thông tin" />
         </Form.Item>
 
-        {/* Select */}
+      
         <Form.Item label="duration" name="duration">
          <Input placeholder="Nhập thông tin" />
         </Form.Item>
@@ -44,7 +44,7 @@ function EditPage() {
       },
      ]}></Select>
         </Form.Item>
-        {/* Submit button */}
+   
         <Button type="primary" htmlType="submit" >
           Submit
         </Button>
