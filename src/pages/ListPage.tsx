@@ -1,35 +1,40 @@
-import { Table, Button } from "antd";
 import { useQuery } from "@tanstack/react-query";
+import { Button, Table } from "antd";
 import axios from "axios";
-import {   Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 function ListPage(){
     const {data,refetch} = useQuery({
-        queryKey: ["coures"],
-        queryFn: async()=>{
-            const res = await axios.get(`http://localhost:3000/courses`);
+        queryKey: ["Coures"],
+        queryFn: async () =>{
+            const res = await axios.get(`http://localhost:3000/courses`)
             return res.data
         }
     });
     const handleDelete = async (id:number)=>{
         try {
             await axios.delete(`http://localhost:3000/courses/${id}`)
-            alert("xóa thành công");
+            alert("xóa thành công")
             refetch()
         } catch (error) {
             alert("xóa thất bại")
         }
     }
     const columns=[
-         {title:"tên",
+           {
+      title:"tên",
       dataIndex:"title"
     },
-     {title:"duration",
+    {
+      title:"duration",
       dataIndex:"duration"
     },
-     {title:"thumbnail",
+    {
+      title:"thumbnail",
       dataIndex:"thumbnail"
     },
-     {title:"category",
+    {
+      title:"category",
       dataIndex:"category"
     },
     {
@@ -44,7 +49,7 @@ function ListPage(){
         )
     }
     ]
-      return (
+    return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-6">Danh sách</h1>
 
@@ -57,4 +62,6 @@ function ListPage(){
     </div>
   );
 }
+
+
 export default ListPage
