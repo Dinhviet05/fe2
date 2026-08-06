@@ -15,7 +15,6 @@ function AddPage(){
       }
       const{mutate} = useMutation({
         mutationFn: async (data: any)=>{
-            return await axios.post(`http://localhost:3000/courses`, data)
         }
       })
   return (
